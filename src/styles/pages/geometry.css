@@ -1,0 +1,51 @@
+/* 8. src/styles/pages/geometry.css */
+/* src/styles/pages/geometry.css */
+.geometry-canvas {
+  height: 400px;
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.downsampling-info,
+.alpha-parameters {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.point-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.count-before, .count-after {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.count-before {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.count-after {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.parameter {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+}

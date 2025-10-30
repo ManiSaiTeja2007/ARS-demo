@@ -1,0 +1,63 @@
+/* 13. src/styles/pages/roles.css */
+/* src/styles/pages/roles.css */
+.role-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.priority-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.priority-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  background: var(--background-color);
+  border-radius: 6px;
+}
+
+.level-number {
+  background: var(--primary-color);
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.priority-high {
+  background: #ef4444;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.priority-normal {
+  background: #60a5fa;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.session-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.session-feature {
+  padding: 1rem;
+  background: var(--background-color);
+  border-radius: 6px;
+}

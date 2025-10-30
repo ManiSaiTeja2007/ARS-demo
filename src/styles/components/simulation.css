@@ -1,0 +1,98 @@
+/* 4. src/styles/components/simulation.css */
+/* src/styles/components/simulation.css */
+/* Simulation Layout */
+.simulation-page {
+  height: calc(100vh - 200px);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.simulation-layout {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+  height: 100%;
+}
+
+.simulation-canvas {
+  background: #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.simulation-canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.simulation-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow-y: auto;
+}
+
+/* Ring Styles */
+.ring-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--surface-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ring-color, .sensor-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.collision-ring {
+  border: 2px dashed #ff4444;
+  background: transparent;
+}
+
+.neighbor-ring {
+  border: 2px dashed #ffff00;
+  background: transparent;
+}
+
+.espnow-ring {
+  border: 2px solid #00ff00;
+  background: transparent;
+}
+
+.sensor-color {
+  background: linear-gradient(45deg, #ff4444, #ffff00, #00ff00);
+  opacity: 0.4;
+  border: none;
+}
+
+.ring-outline {
+  fill: none;
+  stroke-width: 2;
+}
+
+.collision-outline {
+  stroke: #ff4444;
+  stroke-dasharray: 5, 5;
+}
+
+.neighbor-outline {
+  stroke: #ffff00;
+  stroke-dasharray: 10, 5;
+}
+
+.espnow-outline {
+  stroke: #00ff00;
+}

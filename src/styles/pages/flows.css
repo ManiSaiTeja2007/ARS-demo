@@ -1,0 +1,74 @@
+/* 11. src/styles/pages/flows.css */
+/* src/styles/pages/flows.css */
+.flow-diagram {
+  min-height: 400px;
+  background: var(--surface-color);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.flow-details,
+.security-actions,
+.session-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.validation-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.validation-steps li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  background: var(--background-color);
+  border-radius: 6px;
+}
+
+.response-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.isolation-criteria {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.isolation-criteria li {
+  padding: 0.5rem;
+  background: var(--background-color);
+  border-radius: 4px;
+}
+
+.benefits-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.security-measures {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.measure {
+  padding: 0.75rem;
+  background: var(--background-color);
+  border-radius: 6px;
+}

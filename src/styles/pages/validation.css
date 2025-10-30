@@ -1,0 +1,44 @@
+/* 7. src/styles/pages/validation.css */
+/* src/styles/pages/validation.css */
+.pipeline-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pipeline-step {
+  padding: 1rem;
+  background: var(--surface-color);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 4px;
+}
+
+.timing-specs,
+.proximity-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.timing-item,
+.proximity-rule {
+  padding: 0.75rem;
+  background: var(--background-color);
+  border-radius: 6px;
+}
+
+.priority-system {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.priority-tier {
+  padding: 1rem;
+  background: var(--background-color);
+  border-radius: 8px;
+}
+
+.priority-types {
+  grid-column: 1 / -1;
+}

@@ -1,0 +1,263 @@
+/* 3. src/styles/components/tiles.css */
+/* src/styles/components/tiles.css */
+/* Tile Grid System */
+.tile-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tile-row {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.tile {
+  background: var(--surface-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tile:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.tile.size-small {
+  grid-column: span 1;
+}
+
+.tile.size-medium {
+  grid-column: span 2;
+}
+
+.tile.size-large {
+  grid-column: span 3;
+}
+
+.tile.size-wide {
+  grid-column: 1 / -1;
+}
+
+/* Feature Card */
+.feature-card {
+  border-top: 4px solid;
+}
+
+.feature-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.feature-description {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* Stat Card */
+.stat-card {
+  border-left: 4px solid;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Code Tile */
+.code-tile pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-top: 1rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.code-description {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* Architecture Diagram */
+.architecture-diagram .diagram-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.layers-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.architecture-layer {
+  border-left: 4px solid;
+  background: var(--background-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.layer-header {
+  padding: 1rem;
+  color: white;
+}
+
+.layer-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.layer-components {
+  padding: 1rem;
+}
+
+.component {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.component:last-child {
+  border-bottom: none;
+}
+
+.data-flows {
+  background: var(--background-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.data-flow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--surface-color);
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  border-left: 3px solid var(--primary-color);
+}
+
+.flow-arrow {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.flow-type {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-left: auto;
+}
+
+.flow-data {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ASCII Architecture */
+.ascii-architecture {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  white-space: pre;
+}
+
+/* Layer Components */
+.layer-components {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.component-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background: var(--surface-color);
+  border-radius: 6px;
+  border-left: 3px solid;
+}
+
+.component-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Memory Stats */
+.memory-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.memory-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: var(--background-color);
+  border-radius: 6px;
+}
+
+.memory-item span:first-child {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.memory-item span:last-child {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* System Overview */
+.system-overview {
+  line-height: 1.8;
+}
+
+.system-overview ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.system-overview li {
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,63 @@
+/* 10. src/styles/pages/backend.css */
+/* src/styles/pages/backend.css */
+.port-configuration,
+.redis-streams {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.port-item,
+.stream {
+  padding: 0.75rem;
+  background: var(--background-color);
+  border-radius: 6px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.port-type {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  float: right;
+}
+
+.worker-pools {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.worker-pool {
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.worker-pool.priority { border-left-color: #ef4444; }
+.worker-pool.normal { border-left-color: #60a5fa; }
+.worker-pool.fusion { border-left-color: #10b981; }
+.worker-pool.geometry { border-left-color: #f59e0b; }
+.worker-pool.alert { border-left-color: #8b5cf6; }
+
+.pool-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.spec {
+  background: rgba(255,255,255,0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.monitoring-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}

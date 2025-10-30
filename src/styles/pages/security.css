@@ -1,0 +1,79 @@
+/* 6. src/styles/pages/security.css */
+/* src/styles/pages/security.css */
+.security-viz {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hash-flow {
+  background: var(--background-color);
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: monospace;
+  color: var(--text-primary);
+}
+
+.key-rotation {
+  animation: rotate 2s linear infinite;
+}
+
+.key-lifecycles {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.key-item {
+  padding: 1rem;
+  background: var(--background-color);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.key-item h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+}
+
+.key-duration {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  float: right;
+}
+
+.registration-flow,
+.intrusion-response {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.flow-step,
+.response-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: var(--background-color);
+  border-radius: 6px;
+}
+
+.step-number {
+  background: var(--primary-color);
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.step-icon {
+  font-size: 1.2rem;
+}

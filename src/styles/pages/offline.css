@@ -1,0 +1,61 @@
+/* 12. src/styles/pages/offline.css */
+/* src/styles/pages/offline.css */
+.cache-specs,
+.rendezvous-protocol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.protocol-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--background-color);
+  border-radius: 6px;
+}
+
+.verification-process {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.verification-step {
+  padding: 1rem;
+  background: var(--background-color);
+  border-radius: 6px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.comparison-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.match, .mismatch, .intruder {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.match { background: #d1fae5; color: #065f46; }
+.mismatch { background: #fef3c7; color: #92400e; }
+.intruder { background: #fee2e2; color: #991b1b; }
+
+.security-considerations {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.consideration {
+  padding: 1rem;
+  background: var(--background-color);
+  border-radius: 6px;
+}
