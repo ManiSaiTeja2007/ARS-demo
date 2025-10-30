@@ -1,5 +1,4 @@
-// src/utils/diagramUtils.ts (New file)
-import type { Point, AlphaShape } from '../types';
+import type { Point, AlphaShape, FlowStep } from '../types';
 
 // Helper to generate sample alpha-shape data
 export const generateAlphaShape = (numPoints: number = 500): AlphaShape => {

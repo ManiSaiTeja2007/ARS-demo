@@ -1,6 +1,4 @@
-// src/App.tsx
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// Remove: import './App.css'; - Now using modular CSS imports in main.tsx
 import Header from './components/Layout/Header';
 import Navigation from './components/Layout/Navigation';
 import Home from './pages/Home';
@@ -18,7 +16,6 @@ import Roles from './pages/Roles';
 import Geometry from './pages/Geometry';
 import Fusion from './pages/Fusion';
 import Backend from './pages/Backend';
-import SimulatorPage from './pages/SimulatorPage';
 import Admin from './pages/Admin';
 import Flows from './pages/Flows';
 
@@ -45,7 +42,6 @@ function App() {
             <Route path="/geometry" element={<Geometry />} />
             <Route path="/fusion" element={<Fusion />} />
             <Route path="/backend" element={<Backend />} />
-            <Route path="/simulator" element={<SimulatorPage />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/flows" element={<Flows />} />
           </Routes>

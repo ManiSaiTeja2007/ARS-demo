@@ -1,6 +1,5 @@
-// src/components/UI/ControlPanel.tsx
 import React from 'react';
-import { SimulationState, ControlState, Rover, Obstacle, MeshNode } from '../../types';
+import type { SimulationState, ControlState, Rover, Obstacle, MeshNode } from '../../types';
 
 interface ControlPanelProps {
   rovers: Rover[];
@@ -8,7 +7,7 @@ interface ControlPanelProps {
   controlState: ControlState;
   onSimulationStateChange: (state: SimulationState) => void;
   onControlStateChange: (state: ControlState) => void;
-  onAddRover: (position: { x: number; z: number }) => void;
+  onAddRover: (position: { x: number, z: number }) => void;
   onAddObstacle: () => void;
   onSelectRover: (rover: Rover) => void;
   selectedRover: Rover;
@@ -39,7 +38,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
   onGestureControlToggle,
   gestureControlActive,
   obstacles,
-  meshNodes
+  meshNodes,
 }) => {
   const handleSimulationToggle = () => {
     onSimulationStateChange({
@@ -79,14 +78,20 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
     const updatedRovers = rovers.map(rover =>
       rover.id === roverId ? { ...rover, mode } : rover
     );
-    onSelectRover(updatedRovers.find(r => r.id === roverId) || selectedRover);
+    const updatedRover = updatedRovers.find(r => r.id === roverId);
+    if (updatedRover) {
+      onSelectRover(updatedRover);
+    }
   };
 
-  const handleRoverRoleChange = (roverId: number, role: 'leader' | 'scout' | 'relay') => {
+  const handleRoverRoleChange = (roverId: number, role: 'scout' | 'forager' | 'sleep') => {
     const updatedRovers = rovers.map(rover =>
       rover.id === roverId ? { ...rover, role } : rover
     );
-    onSelectRover(updatedRovers.find(r => r.id === roverId) || selectedRover);
+    const updatedRover = updatedRovers.find(r => r.id === roverId);
+    if (updatedRover) {
+      onSelectRover(updatedRover);
+    }
   };
 
   const handleEmergencyStop = () => {
@@ -95,13 +100,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
       emergencyStop: true
     });
     
-    // Reset all rovers
-    const updatedRovers = rovers.map(rover => ({
-      ...rover,
-      velocity: { x: 0, y: 0, z: 0 },
-      angularVelocity: { x: 0, y: 0, z: 0 }
-    }));
-    
+    // Reset emergency stop after 2 seconds
     setTimeout(() => {
       onControlStateChange({
         ...controlState,
@@ -111,19 +110,12 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
   };
 
   return (
-    <div className="control-panel" style={{ 
-      background: '#1a365d', 
-      color: 'white', 
-      padding: '1rem',
-      borderRadius: '8px',
-      height: '100%',
-      overflowY: 'auto'
-    }}>
+    <div className="control-panel">
       <h2 style={{ margin: '0 0 1rem 0', fontSize: '1.5rem' }}>Control Panel</h2>
 
       {/* Simulation Controls */}
-      <div className="control-section" style={{ marginBottom: '1.5rem' }}>
-        <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem' }}>Simulation</h3>
+      <div className="control-section">
+        <h3>Simulation</h3>
         <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}>
           <button
             onClick={handleSimulationToggle}
@@ -183,8 +175,8 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
       </div>
 
       {/* Camera Controls */}
-      <div className="control-section" style={{ marginBottom: '1.5rem' }}>
-        <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem' }}>Camera</h3>
+      <div className="control-section">
+        <h3>Camera</h3>
         <div style={{ display: 'flex', gap: '0.5rem' }}>
           {(['orbit', 'follow', 'top'] as const).map(mode => (
             <button
@@ -208,8 +200,8 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
       </div>
 
       {/* Visualization Controls */}
-      <div className="control-section" style={{ marginBottom: '1.5rem' }}>
-        <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem' }}>Visualization</h3>
+      <div className="control-section">
+        <h3>Visualization</h3>
         {[
           { key: 'showGrid', label: 'Show Grid' },
           { key: 'showSensors', label: 'Show Sensors' },
@@ -233,8 +225,8 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
       </div>
 
       {/* Rover Management */}
-      <div className="control-section" style={{ marginBottom: '1.5rem' }}>
-        <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem' }}>Rover Management</h3>
+      <div className="control-section">
+        <h3>Rover Management</h3>
         
         <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}>
           <button
@@ -308,8 +300,8 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
 
       {/* Selected Rover Controls */}
       {selectedRover && (
-        <div className="control-section" style={{ marginBottom: '1.5rem' }}>
-          <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem' }}>Rover {selectedRover.id} Controls</h3>
+        <div className="control-section">
+          <h3>Rover {selectedRover.id} Controls</h3>
           
           <div style={{ marginBottom: '0.5rem' }}>
             <label style={{ display: 'block', marginBottom: '0.25rem' }}>Mode:</label>
@@ -339,12 +331,12 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
             <label style={{ display: 'block', marginBottom: '0.25rem' }}>Role:</label>
             <select
               value={selectedRover.role}
-              onChange={(e) => handleRoverRoleChange(selectedRover.id, e.target.value as 'leader' | 'scout' | 'relay')}
+              onChange={(e) => handleRoverRoleChange(selectedRover.id, e.target.value as 'scout' | 'forager' | 'sleep')}
               style={{ width: '100%', padding: '0.25rem', borderRadius: '4px', background: '#2d3748', color: 'white' }}
             >
-              <option value="leader">Leader</option>
               <option value="scout">Scout</option>
-              <option value="relay">Relay</option>
+              <option value="forager">Forager</option>
+              <option value="sleep">Sleep</option>
             </select>
           </div>
         </div>
@@ -352,7 +344,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
 
       {/* Experimental Features */}
       <div className="control-section">
-        <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem' }}>Experimental</h3>
+        <h3>Experimental</h3>
         
         <label style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
           <input

@@ -1,10 +1,10 @@
-// src/pages/Flows.tsx
 import React from 'react';
 import FlowDiagram from '../components/Common/FlowDiagram';
 import FeatureCard from '../components/Common/FeatureCard';
+import type { FlowStep } from '../types';
 
 const Flows: React.FC = () => {
-  const telemetrySteps = [
+  const telemetrySteps: FlowStep[] = [
     { id: '1', label: 'Rover Sweep', description: 'Perform ultrasonic sweep ±15°, 30 samples in cm', actor: 'Rover' },
     { id: '2', label: 'Pack Frame', description: 'Create compact ESP-NOW binary frame', actor: 'Rover' },
     { id: '3', label: 'ESP-NOW Send', description: 'Transmit via mesh to leader', actor: 'Rover' },
@@ -18,7 +18,7 @@ const Flows: React.FC = () => {
     { id: '11', label: 'WebSocket Push', description: 'Real-time updates to UI', actor: 'Backend' }
   ];
 
-  const intruderSteps = [
+  const intruderSteps: FlowStep[] = [
     { id: '1', label: 'Hash Mismatch', description: 'Backend detects invalid hash', actor: 'Backend' },
     { id: '2', label: 'Security Log', description: 'Create audit event', actor: 'Backend' },
     { id: '3', label: 'Key Rotation', description: 'Immediately rotate unit hash_key', actor: 'Backend' },
@@ -27,7 +27,7 @@ const Flows: React.FC = () => {
     { id: '6', label: 'Isolation', description: 'Failure to re-register → isolate', actor: 'Backend' }
   ];
 
-  const sessionSteps = [
+  const sessionSteps: FlowStep[] = [
     { id: '1', label: 'UI Session Request', description: 'Operator initiates manual control', actor: 'UI' },
     { id: '2', label: 'Session Negotiation', description: 'Backend creates ephemeral session ID', actor: 'Backend' },
     { id: '3', label: 'Port Opening', description: 'Open separate UDP session port', actor: 'Backend' },
