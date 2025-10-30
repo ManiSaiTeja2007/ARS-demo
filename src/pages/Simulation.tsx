@@ -322,6 +322,7 @@ const Simulation: React.FC = () => {
     }
   ]);
   const [leaderId, setLeaderId] = useState<number>(1);
+  const [nextRoverId, setNextRoverId] = useState(() => Math.max(...rovers.map(r => r.id), 0) + 1);
 
   const meshNodes: MeshNode[] = rovers.map(rover => ({
     id: rover.id,
@@ -332,7 +333,7 @@ const Simulation: React.FC = () => {
   }));
 
   const addRover = (position: { x: number, z: number }) => {
-    const newId = Math.max(...rovers.map(r => r.id)) + 1;
+    const newId = nextRoverId;
     const newRover: Rover = {
       id: newId,
       mac: `84:0D:8E:AA:${newId.toString().padStart(2, '0')}`,
@@ -366,6 +367,11 @@ const Simulation: React.FC = () => {
       sweep: Array(30).fill(400),
     };
     setRovers([...rovers, newRover]);
+    setNextRoverId(newId + 1);
+  };
+
+  const removeRover = (id: number) => {
+    setRovers(rovers.filter(rover => rover.id !== id));
   };
 
   const addRandomObstacle = () => {
